@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentScreenTiga">
+
+    <TextView
+        style="@style/TextStyle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/screen_3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_empat"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_nama"
+            style="@style/TextStyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_usia"
+            style="@style/TextStyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_alamat"
+            style="@style/TextStyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_pekerjaan"
+            style="@style/TextStyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_namaDua"
+            style="@style/TextStyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="@string/nama_anda" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_empat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/go_to_screen_4"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

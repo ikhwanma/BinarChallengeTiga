@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentScreenDua">
+
+    <TextView
+        style="@style/TextStyle"
+        android:text="@string/screen_2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/input_nama"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_above="@+id/btn_tiga"
+        android:layout_margin="10dp"
+        android:paddingStart="15dp"
+        android:background="@drawable/style_edit_text"
+        android:hint="@string/masukkan_nama"
+        android:autofillHints="Nama"
+        android:inputType="text"
+        tools:ignore="RtlSymmetry"
+        />
+
+    <Button
+        android:id="@+id/btn_tiga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/go_to_screen_3"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

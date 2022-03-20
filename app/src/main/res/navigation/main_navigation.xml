@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/fragmentScreenSatu">
+
+    <fragment
+        android:id="@+id/fragmentScreenSatu"
+        android:name="ikhwan.binar.challengechaptertiga.FragmentScreenSatu"
+        android:label="fragment_screen_satu"
+        tools:layout="@layout/fragment_screen_satu" >
+        <action
+            android:id="@+id/action_fragmentScreenSatu_to_fragmentScreenDua"
+            app:destination="@id/fragmentScreenDua" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenDua"
+        android:name="ikhwan.binar.challengechaptertiga.FragmentScreenDua"
+        android:label="fragment_screen_dua"
+        tools:layout="@layout/fragment_screen_dua" >
+        <action
+            android:id="@+id/action_fragmentScreenDua_to_fragmentScreenTiga"
+            app:destination="@id/fragmentScreenTiga" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenTiga"
+        android:name="ikhwan.binar.challengechaptertiga.FragmentScreenTiga"
+        android:label="fragment_screen_tiga"
+        tools:layout="@layout/fragment_screen_tiga" >
+        <action
+            android:id="@+id/action_fragmentScreenTiga_to_fragmentScreenEmpat"
+            app:destination="@id/fragmentScreenEmpat" />
+        <argument
+            android:name="nama"
+            app:argType="string"
+            android:defaultValue="nama" />
+        <argument
+            android:name="alamat"
+            app:argType="string"
+            android:defaultValue="alamat" />
+        <argument
+            android:name="usia"
+            app:argType="string"
+            android:defaultValue="usia" />
+        <argument
+            android:name="pekerjaan"
+            app:argType="string"
+            android:defaultValue="pekerjaan" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenEmpat"
+        android:name="ikhwan.binar.challengechaptertiga.FragmentScreenEmpat"
+        android:label="fragment_screen_empat"
+        tools:layout="@layout/fragment_screen_empat" >
+        <action
+            android:id="@+id/action_fragmentScreenEmpat_to_fragmentScreenTiga"
+            app:destination="@id/fragmentScreenTiga" />
+        <argument
+            android:name="nama"
+            app:argType="string"
+            android:defaultValue="nama" />
+        <argument
+            android:name="usia"
+            app:argType="string"
+            android:defaultValue="usia" />
+        <argument
+            android:name="alamat"
+            app:argType="string"
+            android:defaultValue="alamat" />
+        <argument
+            android:name="pekerjaan"
+            app:argType="string"
+            android:defaultValue="pekerjaan" />
+    </fragment>
+</navigation>
