@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import ikhwan.binar.challengechaptertiga.databinding.FragmentScreenDuaBinding
 
@@ -30,8 +31,8 @@ class FragmentScreenDua : Fragment() , View.OnClickListener{
         when(p0?.id){
             R.id.btn_tiga -> {
                 val nama = binding.inputNama.text.toString()
-                val mBundle = Bundle()
-                mBundle.putString(FragmentScreenTiga.EXTRA_NAMA, nama)
+                val person = Person(nama,null,null,null)
+                val mBundle = bundleOf(FragmentScreenTiga.EXTRA_PERSON to person)
                 p0.findNavController().navigate(R.id.action_fragmentScreenDua_to_fragmentScreenTiga, mBundle)
             }
         }

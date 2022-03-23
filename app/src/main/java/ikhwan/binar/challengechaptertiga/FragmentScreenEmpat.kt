@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import ikhwan.binar.challengechaptertiga.databinding.FragmentScreenEmpatBinding
 
@@ -27,10 +28,11 @@ class FragmentScreenEmpat : Fragment() , View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        nama = arguments?.getString(FragmentScreenTiga.EXTRA_NAMA).toString()
-        usia = arguments?.getString(FragmentScreenTiga.EXTRA_USIA).toString()
-        alamat = arguments?.getString(FragmentScreenTiga.EXTRA_ALAMAT).toString()
-        pekerjaan = arguments?.getString(FragmentScreenTiga.EXTRA_PEKERJAAN).toString()
+        val person = arguments?.getParcelable<Person>(FragmentScreenTiga.EXTRA_PERSON) as Person
+        nama = person.nama.toString()
+        usia = person.usia.toString()
+        alamat = person.alamat.toString()
+        pekerjaan = person.pekerjaan.toString()
 
         if (usia !="null"){
             binding.apply {
@@ -56,11 +58,8 @@ class FragmentScreenEmpat : Fragment() , View.OnClickListener {
                     alamat = inputAlamat.text.toString()
                     pekerjaan = inputPekerjaan.text.toString()
                 }
-                val mBundle = Bundle()
-                mBundle.putString(FragmentScreenTiga.EXTRA_NAMA, nama)
-                mBundle.putString(FragmentScreenTiga.EXTRA_USIA, usia)
-                mBundle.putString(FragmentScreenTiga.EXTRA_ALAMAT, alamat)
-                mBundle.putString(FragmentScreenTiga.EXTRA_PEKERJAAN, pekerjaan)
+                val person = Person(nama, usia, alamat, pekerjaan)
+                val mBundle = bundleOf(FragmentScreenTiga.EXTRA_PERSON to person)
                 p0.findNavController().navigate(R.id.action_fragmentScreenEmpat_to_fragmentScreenTiga, mBundle)
             }
         }

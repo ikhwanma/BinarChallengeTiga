@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import ikhwan.binar.challengechaptertiga.databinding.FragmentScreenTigaBinding
 
@@ -27,10 +28,12 @@ class FragmentScreenTiga : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        nama = arguments?.getString(EXTRA_NAMA).toString()
-        usia = arguments?.getString(EXTRA_USIA).toString()
-        alamat = arguments?.getString(EXTRA_ALAMAT).toString()
-        pekerjaan = arguments?.getString(EXTRA_PEKERJAAN).toString()
+
+        val person = arguments?.getParcelable<Person>(EXTRA_PERSON) as Person
+        nama = person.nama.toString()
+        usia = person.usia.toString()
+        alamat = person.alamat.toString()
+        pekerjaan = person.pekerjaan.toString()
 
         if (usia == "null") {
             onlyName()
@@ -44,12 +47,8 @@ class FragmentScreenTiga : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.btn_empat -> {
-                val mBundle = Bundle()
-                mBundle.putString(EXTRA_NAMA, nama)
-                mBundle.putString(EXTRA_USIA, usia)
-                mBundle.putString(EXTRA_ALAMAT, alamat)
-                mBundle.putString(EXTRA_PEKERJAAN, pekerjaan)
-
+                val person = Person(nama,usia,alamat, pekerjaan)
+                val mBundle = bundleOf(EXTRA_PERSON to person)
                 p0.findNavController()
                     .navigate(R.id.action_fragmentScreenTiga_to_fragmentScreenEmpat, mBundle)
             }
@@ -90,6 +89,7 @@ class FragmentScreenTiga : Fragment(), View.OnClickListener {
     }
 
     companion object {
+        const val EXTRA_PERSON = "extra_person"
         const val EXTRA_NAMA = "extra_nama"
         const val EXTRA_USIA = "extra_usia"
         const val EXTRA_ALAMAT = "extra_alamat"
