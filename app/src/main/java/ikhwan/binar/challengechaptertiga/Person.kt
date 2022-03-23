@@ -9,8 +9,7 @@ data class Person(val nama:String?, val usia : String?, val alamat : String?, va
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(nama)

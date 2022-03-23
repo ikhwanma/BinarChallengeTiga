@@ -90,9 +90,5 @@ class FragmentScreenTiga : Fragment(), View.OnClickListener {
 
     companion object {
         const val EXTRA_PERSON = "extra_person"
-        const val EXTRA_NAMA = "extra_nama"
-        const val EXTRA_USIA = "extra_usia"
-        const val EXTRA_ALAMAT = "extra_alamat"
-        const val EXTRA_PEKERJAAN = "extra_pekerjaan"
     }
 }
