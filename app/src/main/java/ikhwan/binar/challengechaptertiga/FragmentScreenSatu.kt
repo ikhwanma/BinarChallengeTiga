@@ -6,30 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import ikhwan.binar.challengechaptertiga.databinding.FragmentScreenSatuBinding
+import kotlinx.android.synthetic.main.fragment_screen_satu.*
 
 class FragmentScreenSatu : Fragment(), View.OnClickListener {
-
-    private var _binding : FragmentScreenSatuBinding? = null
-    private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentScreenSatuBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_screen_satu,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnDua.setOnClickListener(this)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
+        btn_dua.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {

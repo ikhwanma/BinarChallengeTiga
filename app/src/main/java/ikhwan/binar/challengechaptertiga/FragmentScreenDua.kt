@@ -7,31 +7,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
-import ikhwan.binar.challengechaptertiga.databinding.FragmentScreenDuaBinding
+import kotlinx.android.synthetic.main.fragment_screen_dua.*
 
 class FragmentScreenDua : Fragment() , View.OnClickListener{
-
-    private var _binding : FragmentScreenDuaBinding? = null
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentScreenDuaBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_screen_dua,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnTiga.setOnClickListener(this)
+        btn_tiga.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
         when(p0?.id){
             R.id.btn_tiga -> {
-                val nama = binding.inputNama.text.toString()
-                val person = Person(nama,null,null,null)
+                val nama = input_nama.text.toString()
+                val person = DataUser(nama,null,null,null)
                 val mBundle = bundleOf(FragmentScreenTiga.EXTRA_PERSON to person)
                 p0.findNavController().navigate(R.id.action_fragmentScreenDua_to_fragmentScreenTiga, mBundle)
             }

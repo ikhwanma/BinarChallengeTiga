@@ -3,7 +3,7 @@ package ikhwan.binar.challengechaptertiga
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Person(val nama:String?, val usia : String?, val alamat : String?, val pekerjaan : String?) : Parcelable {
+data class DataUser(val nama:String?, val usia : String?, val alamat : String?, val pekerjaan : String?) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
@@ -22,12 +22,12 @@ data class Person(val nama:String?, val usia : String?, val alamat : String?, va
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<Person> {
-        override fun createFromParcel(parcel: Parcel): Person {
-            return Person(parcel)
+    companion object CREATOR : Parcelable.Creator<DataUser> {
+        override fun createFromParcel(parcel: Parcel): DataUser {
+            return DataUser(parcel)
         }
 
-        override fun newArray(size: Int): Array<Person?> {
+        override fun newArray(size: Int): Array<DataUser?> {
             return arrayOfNulls(size)
         }
     }
