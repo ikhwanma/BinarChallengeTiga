@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_screen_satu.*
 
-class FragmentScreenSatu : Fragment(), View.OnClickListener {
+class FragmentScreenSatu : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,15 +19,15 @@ class FragmentScreenSatu : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btn_dua.setOnClickListener(this)
+
+        openDua()
     }
 
-    override fun onClick(p0: View?) {
-        when(p0?.id){
-            R.id.btn_dua ->{
-                p0.findNavController().navigate(R.id.action_fragmentScreenSatu_to_fragmentScreenDua)
-            }
+    private fun openDua() {
+        btn_dua.setOnClickListener{
+            it.findNavController().navigate(R.id.action_fragmentScreenSatu_to_fragmentScreenDua)
         }
     }
+
 
 }

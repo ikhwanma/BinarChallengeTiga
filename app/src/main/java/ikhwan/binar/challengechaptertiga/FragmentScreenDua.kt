@@ -9,7 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_screen_dua.*
 
-class FragmentScreenDua : Fragment() , View.OnClickListener{
+class FragmentScreenDua : Fragment(){
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,18 +20,18 @@ class FragmentScreenDua : Fragment() , View.OnClickListener{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btn_tiga.setOnClickListener(this)
+
+        openTiga()
     }
 
-    override fun onClick(p0: View?) {
-        when(p0?.id){
-            R.id.btn_tiga -> {
-                val nama = input_nama.text.toString()
-                val person = DataUser(nama,null,null,null)
-                val mBundle = bundleOf(FragmentScreenTiga.EXTRA_PERSON to person)
-                p0.findNavController().navigate(R.id.action_fragmentScreenDua_to_fragmentScreenTiga, mBundle)
-            }
+    private fun openTiga() {
+        btn_tiga.setOnClickListener{
+            val nama = input_nama.text.toString()
+            val dataUser = DataUser(nama,null,null,null)
+            val mBundle = bundleOf(FragmentScreenTiga.EXTRA_DATA to dataUser)
+            it.findNavController().navigate(R.id.action_fragmentScreenDua_to_fragmentScreenTiga, mBundle)
         }
     }
+
 
 }

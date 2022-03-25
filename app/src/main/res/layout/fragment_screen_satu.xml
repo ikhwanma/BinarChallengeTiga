@@ -7,10 +7,9 @@
 
     <TextView
         style="@style/TextStyle"
-        android:text="@string/screen_1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        />
+        android:text="@string/screen_1" />
 
     <Button
         android:id="@+id/btn_dua"

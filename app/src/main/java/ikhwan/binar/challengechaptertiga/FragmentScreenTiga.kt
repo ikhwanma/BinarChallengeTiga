@@ -9,7 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_screen_tiga.*
 
-class FragmentScreenTiga : Fragment(), View.OnClickListener {
+class FragmentScreenTiga : Fragment() {
 
     private lateinit var nama: String
     private lateinit var usia: String
@@ -26,29 +26,31 @@ class FragmentScreenTiga : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val person = arguments?.getParcelable<DataUser>(EXTRA_PERSON) as DataUser
-        nama = person.nama.toString()
-        usia = person.usia.toString()
-        alamat = person.alamat.toString()
-        pekerjaan = person.pekerjaan.toString()
+        val userData = arguments?.getParcelable<DataUser>(EXTRA_DATA) as DataUser
 
+        nama = userData.nama.toString()
+        usia = userData.usia.toString()
+        alamat = userData.alamat.toString()
+        pekerjaan = userData.pekerjaan.toString()
+
+        cekData()
+        openEmpat()
+    }
+
+    private fun openEmpat() {
+        btn_empat.setOnClickListener{
+            val dataUser = DataUser(nama, usia, alamat, pekerjaan)
+            val mBundle = bundleOf(EXTRA_DATA to dataUser)
+            it.findNavController()
+                .navigate(R.id.action_fragmentScreenTiga_to_fragmentScreenEmpat, mBundle)
+        }
+    }
+
+    private fun cekData() {
         if (usia == "null") {
             onlyName()
         } else {
             fullData()
-        }
-
-        btn_empat.setOnClickListener(this)
-    }
-
-    override fun onClick(p0: View?) {
-        when (p0?.id) {
-            R.id.btn_empat -> {
-                val person = DataUser(nama, usia, alamat, pekerjaan)
-                val mBundle = bundleOf(EXTRA_PERSON to person)
-                p0.findNavController()
-                    .navigate(R.id.action_fragmentScreenTiga_to_fragmentScreenEmpat, mBundle)
-            }
         }
     }
 
@@ -79,6 +81,6 @@ class FragmentScreenTiga : Fragment(), View.OnClickListener {
     }
 
     companion object {
-        const val EXTRA_PERSON = "extra_person"
+        const val EXTRA_DATA = "extra_data"
     }
 }
